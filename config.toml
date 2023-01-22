@@ -1,0 +1,79 @@
+baseURL = 'https://nabobery.github.io/'
+languageCode = 'en-us'
+title = "Nabobery"
+theme = "hugocoder"
+defaultcontentlanguage = "en"
+paginate = 20
+pygmentsStyle = "bw"
+pygmentsCodeFences = true
+pygmentsCodeFencesGuessSyntax = true
+enableEmoji = true
+
+[params]
+description = "Nabobery's personal website"
+author = "Nabobery"
+keywords = ["blog","anime reviews","developer", "personal"]
+info = ["Code and Development Maestro"]
+avatarURL = "images/avatar.png"
+enableTwemoji = true
+dateFormat = "January 2, 2006"
+colorScheme = "auto"
+favicon_16 = "/images/logos/favicon-16x16.png"
+favicon_32 = "/images/logos/favicon-32x32.png"
+
+[taxonomies]
+category = "categories"
+series = "series"
+tag = "tags"
+author = "authors"
+
+[[languages.en.menu.main]]
+name = "About"
+weight = 1
+url = "about/"
+
+[[languages.en.menu.main]]
+name = "Blog"
+weight = 2
+url = "posts/"
+
+[[languages.en.menu.main]]
+name = "Projects"
+weight = 3
+url = "projects/"
+
+[[languages.en.menu.main]]
+name = "Contact me"
+weight = 5
+url = "contact/"
+
+[[params.social]]
+name = "Github"
+icon = "fa fa-github fa-2x"
+weight = 1
+url = "https://github.com/nabobery/"
+
+
+[[params.social]]
+name = "LinkedIn"
+icon = "fa fa-linkedin fa-2x"
+weight = 2
+url = "https://www.linkedin.com/in/avinash-changrani/"
+
+[[params.social]]
+name = "Discord"
+icon = "fa fa-discord fa-2x"
+weight = 3
+url = "https://discordapp.com/users/406718496609665025/"
+
+[[params.social]]
+name = "Email"
+icon = "fa fa-envelope fa-2x"
+weight = 4
+url = "mailto:avinashchangranii99@gmail.com"
+
+[[params.social]]
+name = "dev.to"
+icon = "fa fa-dev-to fa-2x"
+weight = 5
+url = "https://dev.to/nabobery"
