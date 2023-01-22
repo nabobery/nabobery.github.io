@@ -1,7 +1,6 @@
 ---
 title: "Contact"
 date: 2023-01-22T13:20:09+05:30
-draft: true
 ---
 
 # Contact Me
