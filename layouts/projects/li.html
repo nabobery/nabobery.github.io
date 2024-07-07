@@ -1,0 +1,5 @@
+<li class="project-box">
+  <h2><a href="{{ .Permalink }}">{{ .Title }}</a></h2>
+  <p class="post-date">{{ .Date.Format "January 2, 2006" }}</p>
+  <p>{{ .Description | safeHTML }}</p>
+</li>

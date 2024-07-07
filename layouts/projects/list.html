@@ -1,0 +1,104 @@
+{{ define "title" }} {{ title (i18n (lower .Title)) | default .Title }} · {{
+.Site.Title }} {{ end }} {{ define "content" }}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{{ template "title" . }}</title>
+    <style>
+      :root {
+        --text-color-light: #fff;
+        --bg-color-light: #fff;
+        --box-border-color-light: #fff;
+
+        --text-color-dark: #000;
+        --bg-color-dark: #fff;
+        --box-border-color-dark: #000;
+      }
+
+      @media (prefers-color-scheme: dark) {
+        :root {
+          --text-color: var(--text-color-dark);
+          --bg-color: var(--bg-color-dark);
+          --box-border-color: var(--box-border-color-dark);
+        }
+      }
+
+      @media (prefers-color-scheme: light),
+        (prefers-color-scheme: no-preference) {
+        :root {
+          --text-color: var(--text-color-light);
+          --bg-color: var(--bg-color-light);
+          --box-border-color: var(--box-border-color-light);
+        }
+      }
+
+      body {
+        color: var(--text-color);
+        background-color: var(--bg-color);
+      }
+
+      .project-box {
+        display: flex;
+        flex-direction: column;
+        border: 1px solid var(--box-border-color);
+        text-align: center;
+        padding: 2px;
+        margin-bottom: 8px;
+        max-width: 70%;
+        margin-left: auto;
+        margin-right: auto;
+        min-height: auto;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+      }
+
+      .project-box * {
+        margin: 3px 0; 
+        padding: 3px 0; 
+      }
+
+      .project-box h2,
+      .project-box p {
+        line-height: 1.2; 
+        font-size: 1em; 
+      }
+
+      .project-box:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+      }
+
+      .project-box h2,
+      .project-box p {
+        padding: 4px;
+        margin: 4px;
+      }
+
+      .post-date {
+        margin: 0;
+      }
+
+      .container.list h1 {
+        margin-top: -20px;
+      }
+    </style>
+  </head>
+  <body>
+    <section class="container list">
+      <h1 class="title">
+        <a class="title-link" href="{{ .Permalink | safeURL }}">
+          {{ title (i18n (lower .Title)) | default .Title }}
+        </a>
+      </h1>
+      {{ .Content }}
+      <ul>
+        {{ range .Paginator.Pages }}
+        {{- .Render "li" -}}
+        {{ end }}
+      </ul>
+      {{ partial "pagination.html" . }}
+    </section>
+  </body>
+</html>
+{{ end }}

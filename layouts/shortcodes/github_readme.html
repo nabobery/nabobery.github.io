@@ -1,0 +1,29 @@
+<div id="github-readme"></div>
+<script>
+  (function () {
+    var url = '{{ .Get "url" }}';
+    fetch(url)
+      .then((response) => response.text())
+      .then((text) => {
+        document.getElementById("github-readme").innerHTML = marked.parse(text);
+        const projectUrl = url.replace('raw.githubusercontent.com', 'github.com')
+                                    .replace('/master/', '/')
+                                    .replace('/main/', '/')
+                                    .replace('/README.md', '');
+        const additionalHTML = `<p>Check out the <a href="${projectUrl}" target="_blank">GitHub repository</a> for more information.</p>`;
+        document.getElementById("github-readme").innerHTML += additionalHTML;
+        let content = document.getElementById("github-readme").innerText;
+        const words = content.match(/\w+/g).length;
+        const readingTime = Math.ceil(words / 200); 
+        const readingTimeElement = document.getElementsByClassName("reading-time")[0];
+        if (readingTimeElement) {
+          readingTimeElement.textContent = readingTime + "-minute read";
+        }
+      })
+      .catch((error) => {
+        console.error("Error fetching the README:", error);
+        document.getElementById("github-readme").innerHTML =
+          "<p>Error loading README.</p>";
+      });
+  })();
+</script>
