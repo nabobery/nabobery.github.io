@@ -78,3 +78,10 @@ name = "dev.to"
 icon = "fa fa-dev-to fa-2x"
 weight = 5
 url = "https://dev.to/nabobery"
+
+# Enable SCSS processing
+[build]
+  publishDir = "public"
+  [build.resources]
+    [build.resources.scss]
+      enableInlineSass = true
