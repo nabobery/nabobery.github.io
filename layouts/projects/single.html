@@ -32,7 +32,9 @@
           {{ with .GetTerms "tags" }}{{ partial "taxonomy/tags.html" . }}{{ end }}
         </div>
       </header>
-
+      {{ if .HasShortcode "github_readme" }}
+        <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+      {{ end }}
       <div class="project-content">
         {{ if .Params.featuredImage }}
           <img src="{{ .Params.featuredImage | relURL }}" alt="Featured image"/>
@@ -46,4 +48,3 @@
     </article>
   </section>
 {{ end }}
-
