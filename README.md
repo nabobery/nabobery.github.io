@@ -19,7 +19,7 @@ It's designed to be a platform for me to document my journey, learnings, and pro
 
 - [Hugo](https://gohugo.io/): A fast and modern static site generator
 - [GitHub Pages](https://pages.github.com/): Hosting platform
-- [Your Hugo theme name](link to theme): The theme used for this blog
+- [Hugo Coder](https://github.com/luizdepra/hugo-coder): The theme used for this blog
 
 ## Local Development
 
