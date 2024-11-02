@@ -3,7 +3,8 @@ languageCode = 'en-us'
 title = "Nabobery"
 theme = "hugocoder"
 defaultcontentlanguage = "en"
-paginate = 20
+[pagination]
+  pagerSize = 20
 pygmentsStyle = "bw"
 pygmentsCodeFences = true
 pygmentsCodeFencesGuessSyntax = true
