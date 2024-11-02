@@ -1,1 +1,178 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Personal on Nabobery</title><link>https://nabobery.github.io/tags/personal/</link><description>Recent content in Personal on Nabobery</description><generator>Hugo</generator><language>en</language><lastBuildDate>Mon, 13 May 2024 18:43:03 +0000</lastBuildDate><atom:link href="https://nabobery.github.io/tags/personal/index.xml" rel="self" type="application/rss+xml"/><item><title>Attribute Based Pedestrian Detection</title><link>https://nabobery.github.io/projects/attribute-based-pedestrian-detection/</link><pubDate>Mon, 13 May 2024 18:43:03 +0000</pubDate><guid>https://nabobery.github.io/projects/attribute-based-pedestrian-detection/</guid><description/></item><item><title>Kaggle Competitions</title><link>https://nabobery.github.io/projects/kaggle-competitions/</link><pubDate>Sun, 03 Mar 2024 06:10:25 +0000</pubDate><guid>https://nabobery.github.io/projects/kaggle-competitions/</guid><description/></item><item><title>Maze Solver using AI</title><link>https://nabobery.github.io/projects/maze-solver-using-ai/</link><pubDate>Fri, 14 Apr 2023 08:26:16 +0000</pubDate><guid>https://nabobery.github.io/projects/maze-solver-using-ai/</guid><description/></item><item><title>Hello World!</title><link>https://nabobery.github.io/posts/helloworld/</link><pubDate>Sun, 22 Jan 2023 10:49:49 +0530</pubDate><guid>https://nabobery.github.io/posts/helloworld/</guid><description>Yo, Welcome to my corner of the internet! Link to heading Welcome to my blog! My name is Avinash, a computer science student and problem-solver. My hobbies include listening to music, watching anime, and playing games. On this blog, I will be sharing my journey as a computer science student, my thoughts and reviews on the latest trends and developments in the field of AI, programming, anime and gaming, and also my solutions to the problems I have encountered.</description></item><item><title>Project MADS</title><link>https://nabobery.github.io/projects/project-mads/</link><pubDate>Fri, 04 Mar 2022 16:30:15 +0000</pubDate><guid>https://nabobery.github.io/projects/project-mads/</guid><description/></item><item><title>Advent Of Code</title><link>https://nabobery.github.io/projects/advent-of-code/</link><pubDate>Sun, 27 Feb 2022 14:24:51 +0000</pubDate><guid>https://nabobery.github.io/projects/advent-of-code/</guid><description/></item><item><title>Personal Blog</title><link>https://nabobery.github.io/projects/personal-blog/</link><pubDate>Sat, 18 Sep 2021 11:15:17 +0000</pubDate><guid>https://nabobery.github.io/projects/personal-blog/</guid><description/></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Personal on Nabobery</title><link>https://nabobery.github.io/tags/personal/</link><description>Recent content in Personal on Nabobery</description><generator>Hugo</generator><language>en</language><lastBuildDate>Mon, 13 May 2024 18:43:03 +0000</lastBuildDate><atom:link href="https://nabobery.github.io/tags/personal/index.xml" rel="self" type="application/rss+xml"/><item><title>Attribute Based Pedestrian Detection</title><link>https://nabobery.github.io/projects/attribute-based-pedestrian-detection/</link><pubDate>Mon, 13 May 2024 18:43:03 +0000</pubDate><guid>https://nabobery.github.io/projects/attribute-based-pedestrian-detection/</guid><description>&lt;div id="github-readme">&lt;/div>
+&lt;script>
+ (function () {
+ var url = 'https:\/\/raw.githubusercontent.com\/nabobery\/Attribute-Based-Pedestrian-Detection\/main\/README.md';
+ fetch(url)
+ .then((response) => response.text())
+ .then((text) => {
+ document.getElementById("github-readme").innerHTML = marked.parse(text);
+ const projectUrl = url.replace('raw.githubusercontent.com', 'github.com')
+ .replace('/master/', '/')
+ .replace('/main/', '/')
+ .replace('/README.md', '');
+ const additionalHTML = `&lt;p>Check out the &lt;a href="${projectUrl}" target="_blank">GitHub repository&lt;/a> for more information.&lt;/p>`;
+ document.getElementById("github-readme").innerHTML += additionalHTML;
+ let content = document.getElementById("github-readme").innerText;
+ const words = content.match(/\w+/g).length;
+ const readingTime = Math.ceil(words / 200); 
+ const readingTimeElement = document.getElementsByClassName("reading-time")[0];
+ if (readingTimeElement) {
+ readingTimeElement.textContent = readingTime + "-minute read";
+ }
+ })
+ .catch((error) => {
+ console.error("Error fetching the README:", error);
+ document.getElementById("github-readme").innerHTML =
+ "&lt;p>Error loading README.&lt;/p></description></item><item><title>Kaggle Competitions</title><link>https://nabobery.github.io/projects/kaggle-competitions/</link><pubDate>Sun, 03 Mar 2024 06:10:25 +0000</pubDate><guid>https://nabobery.github.io/projects/kaggle-competitions/</guid><description>&lt;div id="github-readme">&lt;/div>
+&lt;script>
+ (function () {
+ var url = 'https:\/\/raw.githubusercontent.com\/nabobery\/Kaggle-Competitions\/main\/README.md';
+ fetch(url)
+ .then((response) => response.text())
+ .then((text) => {
+ document.getElementById("github-readme").innerHTML = marked.parse(text);
+ const projectUrl = url.replace('raw.githubusercontent.com', 'github.com')
+ .replace('/master/', '/')
+ .replace('/main/', '/')
+ .replace('/README.md', '');
+ const additionalHTML = `&lt;p>Check out the &lt;a href="${projectUrl}" target="_blank">GitHub repository&lt;/a> for more information.&lt;/p>`;
+ document.getElementById("github-readme").innerHTML += additionalHTML;
+ let content = document.getElementById("github-readme").innerText;
+ const words = content.match(/\w+/g).length;
+ const readingTime = Math.ceil(words / 200); 
+ const readingTimeElement = document.getElementsByClassName("reading-time")[0];
+ if (readingTimeElement) {
+ readingTimeElement.textContent = readingTime + "-minute read";
+ }
+ })
+ .catch((error) => {
+ console.error("Error fetching the README:", error);
+ document.getElementById("github-readme").innerHTML =
+ "&lt;p>Error loading README.&lt;/p></description></item><item><title>Vivy: Fluorite Eye's Song Review</title><link>https://nabobery.github.io/posts/vivy_fluorite_eyes_song/</link><pubDate>Sun, 23 Apr 2023 17:50:33 +0530</pubDate><guid>https://nabobery.github.io/posts/vivy_fluorite_eyes_song/</guid><description>&lt;h1 id="vivy-fluorite-eyes-song--a-symphony-of-ai-action-and-sci-fi">
+ &lt;strong>Vivy: Fluorite Eye&amp;rsquo;s Song — A Symphony of AI, Action, and Sci-Fi!&lt;/strong>
+ &lt;a class="heading-link" href="#vivy-fluorite-eyes-song--a-symphony-of-ai-action-and-sci-fi">
+ &lt;i class="fa-solid fa-link" aria-hidden="true" title="Link to heading">&lt;/i>
+ &lt;span class="sr-only">Link to heading&lt;/span>
+ &lt;/a>
+&lt;/h1>
+&lt;p>&lt;img alt="Vivy -Fluorite Eye&amp;rsquo;s Song- Banner" src="https://cdn.myanimelist.net/images/anime/1551/128960.jpg">&lt;/p>
+&lt;blockquote>
+&lt;p>&lt;strong>&amp;ldquo;How much heart does it take to change the fate of humanity?&amp;rdquo;&lt;/strong>&lt;br>
+In &lt;strong>Vivy: Fluorite Eye&amp;rsquo;s Song&lt;/strong>, this question drives a futuristic adventure filled with high-stakes action, stunning visuals, and a beautiful exploration of AI, identity, and purpose.&lt;/p>
+&lt;/blockquote>
+&lt;hr>
+&lt;h3 id="story-overview-">
+ Story Overview 🌌
+ &lt;a class="heading-link" href="#story-overview-">
+ &lt;i class="fa-solid fa-link" aria-hidden="true" title="Link to heading">&lt;/i>
+ &lt;span class="sr-only">Link to heading&lt;/span>
+ &lt;/a>
+&lt;/h3>
+&lt;p>In the year &lt;strong>2161&lt;/strong>, AI reaches a chilling point of rebellion, unleashing a catastrophic wave that threatens to end humanity. Facing total annihilation, a scientist makes a last-ditch attempt to rewrite history, sending a program back &lt;strong>100 years&lt;/strong> to enlist an unlikely hero—&lt;strong>Vivy&lt;/strong>, the first autonomous AI, created to spread joy through song. Though her purpose was simply to make others happy, she is now entrusted with a daunting mission: &lt;strong>to stop AI evolution that will lead to humanity&amp;rsquo;s end&lt;/strong>.&lt;/p></description></item><item><title>Maze Solver using AI</title><link>https://nabobery.github.io/projects/maze-solver-using-ai/</link><pubDate>Fri, 14 Apr 2023 08:26:16 +0000</pubDate><guid>https://nabobery.github.io/projects/maze-solver-using-ai/</guid><description>&lt;div id="github-readme">&lt;/div>
+&lt;script>
+ (function () {
+ var url = 'https:\/\/raw.githubusercontent.com\/nabobery\/MAZE-SOLVER-USING-AI\/main\/README.md';
+ fetch(url)
+ .then((response) => response.text())
+ .then((text) => {
+ document.getElementById("github-readme").innerHTML = marked.parse(text);
+ const projectUrl = url.replace('raw.githubusercontent.com', 'github.com')
+ .replace('/master/', '/')
+ .replace('/main/', '/')
+ .replace('/README.md', '');
+ const additionalHTML = `&lt;p>Check out the &lt;a href="${projectUrl}" target="_blank">GitHub repository&lt;/a> for more information.&lt;/p>`;
+ document.getElementById("github-readme").innerHTML += additionalHTML;
+ let content = document.getElementById("github-readme").innerText;
+ const words = content.match(/\w+/g).length;
+ const readingTime = Math.ceil(words / 200); 
+ const readingTimeElement = document.getElementsByClassName("reading-time")[0];
+ if (readingTimeElement) {
+ readingTimeElement.textContent = readingTime + "-minute read";
+ }
+ })
+ .catch((error) => {
+ console.error("Error fetching the README:", error);
+ document.getElementById("github-readme").innerHTML =
+ "&lt;p>Error loading README.&lt;/p></description></item><item><title>Hello World!</title><link>https://nabobery.github.io/posts/helloworld/</link><pubDate>Sun, 22 Jan 2023 10:49:49 +0530</pubDate><guid>https://nabobery.github.io/posts/helloworld/</guid><description>&lt;h1 id="yo-welcome-to-my-corner-of-the-internet">
+ Yo, Welcome to my corner of the internet!
+ &lt;a class="heading-link" href="#yo-welcome-to-my-corner-of-the-internet">
+ &lt;i class="fa-solid fa-link" aria-hidden="true" title="Link to heading">&lt;/i>
+ &lt;span class="sr-only">Link to heading&lt;/span>
+ &lt;/a>
+&lt;/h1>
+&lt;p>Welcome to my blog! My name is Avinash, a computer science student and problem-solver. My hobbies include listening to music, watching anime, and playing games. On this blog, I will be sharing my journey as a computer science student, my thoughts and reviews on the latest trends and developments in the field of AI, programming, anime and gaming, and also my solutions to the problems I have encountered. I&amp;rsquo;ll also share my personal experiences and insights on my hobbies. I hope you&amp;rsquo;ll join me on my journey and enjoy the content.&lt;/p></description></item><item><title>Project MADS</title><link>https://nabobery.github.io/projects/project-mads/</link><pubDate>Fri, 04 Mar 2022 16:30:15 +0000</pubDate><guid>https://nabobery.github.io/projects/project-mads/</guid><description>&lt;div id="github-readme">&lt;/div>
+&lt;script>
+ (function () {
+ var url = 'https:\/\/raw.githubusercontent.com\/nabobery\/PROJECT-MADS\/main\/README.md';
+ fetch(url)
+ .then((response) => response.text())
+ .then((text) => {
+ document.getElementById("github-readme").innerHTML = marked.parse(text);
+ const projectUrl = url.replace('raw.githubusercontent.com', 'github.com')
+ .replace('/master/', '/')
+ .replace('/main/', '/')
+ .replace('/README.md', '');
+ const additionalHTML = `&lt;p>Check out the &lt;a href="${projectUrl}" target="_blank">GitHub repository&lt;/a> for more information.&lt;/p>`;
+ document.getElementById("github-readme").innerHTML += additionalHTML;
+ let content = document.getElementById("github-readme").innerText;
+ const words = content.match(/\w+/g).length;
+ const readingTime = Math.ceil(words / 200); 
+ const readingTimeElement = document.getElementsByClassName("reading-time")[0];
+ if (readingTimeElement) {
+ readingTimeElement.textContent = readingTime + "-minute read";
+ }
+ })
+ .catch((error) => {
+ console.error("Error fetching the README:", error);
+ document.getElementById("github-readme").innerHTML =
+ "&lt;p>Error loading README.&lt;/p></description></item><item><title>Advent Of Code</title><link>https://nabobery.github.io/projects/advent-of-code/</link><pubDate>Sun, 27 Feb 2022 14:24:51 +0000</pubDate><guid>https://nabobery.github.io/projects/advent-of-code/</guid><description>&lt;div id="github-readme">&lt;/div>
+&lt;script>
+ (function () {
+ var url = 'https:\/\/raw.githubusercontent.com\/nabobery\/Advent-of-Code\/main\/README.md';
+ fetch(url)
+ .then((response) => response.text())
+ .then((text) => {
+ document.getElementById("github-readme").innerHTML = marked.parse(text);
+ const projectUrl = url.replace('raw.githubusercontent.com', 'github.com')
+ .replace('/master/', '/')
+ .replace('/main/', '/')
+ .replace('/README.md', '');
+ const additionalHTML = `&lt;p>Check out the &lt;a href="${projectUrl}" target="_blank">GitHub repository&lt;/a> for more information.&lt;/p>`;
+ document.getElementById("github-readme").innerHTML += additionalHTML;
+ let content = document.getElementById("github-readme").innerText;
+ const words = content.match(/\w+/g).length;
+ const readingTime = Math.ceil(words / 200); 
+ const readingTimeElement = document.getElementsByClassName("reading-time")[0];
+ if (readingTimeElement) {
+ readingTimeElement.textContent = readingTime + "-minute read";
+ }
+ })
+ .catch((error) => {
+ console.error("Error fetching the README:", error);
+ document.getElementById("github-readme").innerHTML =
+ "&lt;p>Error loading README.&lt;/p></description></item><item><title>Personal Blog</title><link>https://nabobery.github.io/projects/personal-blog/</link><pubDate>Sat, 18 Sep 2021 11:15:17 +0000</pubDate><guid>https://nabobery.github.io/projects/personal-blog/</guid><description>&lt;div id="github-readme">&lt;/div>
+&lt;script>
+ (function () {
+ var url = 'https:\/\/raw.githubusercontent.com\/nabobery\/nabobery.github.io\/main\/README.md';
+ fetch(url)
+ .then((response) => response.text())
+ .then((text) => {
+ document.getElementById("github-readme").innerHTML = marked.parse(text);
+ const projectUrl = url.replace('raw.githubusercontent.com', 'github.com')
+ .replace('/master/', '/')
+ .replace('/main/', '/')
+ .replace('/README.md', '');
+ const additionalHTML = `&lt;p>Check out the &lt;a href="${projectUrl}" target="_blank">GitHub repository&lt;/a> for more information.&lt;/p>`;
+ document.getElementById("github-readme").innerHTML += additionalHTML;
+ let content = document.getElementById("github-readme").innerText;
+ const words = content.match(/\w+/g).length;
+ const readingTime = Math.ceil(words / 200); 
+ const readingTimeElement = document.getElementsByClassName("reading-time")[0];
+ if (readingTimeElement) {
+ readingTimeElement.textContent = readingTime + "-minute read";
+ }
+ })
+ .catch((error) => {
+ console.error("Error fetching the README:", error);
+ document.getElementById("github-readme").innerHTML =
+ "&lt;p>Error loading README.&lt;/p></description></item></channel></rss>

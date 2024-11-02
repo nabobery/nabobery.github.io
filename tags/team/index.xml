@@ -1,2 +1,67 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Team on Nabobery</title><link>https://nabobery.github.io/tags/team/</link><description>Recent content in Team on Nabobery</description><generator>Hugo</generator><language>en</language><lastBuildDate>Thu, 02 Nov 2023 14:00:04 +0000</lastBuildDate><atom:link href="https://nabobery.github.io/tags/team/index.xml" rel="self" type="application/rss+xml"/><item><title>exAImination</title><link>https://nabobery.github.io/projects/eduhack/</link><pubDate>Thu, 02 Nov 2023 14:00:04 +0000</pubDate><guid>https://nabobery.github.io/projects/eduhack/</guid><description/></item><item><title>Before You Sign</title><link>https://nabobery.github.io/projects/before-you-sign/</link><pubDate>Fri, 25 Aug 2023 18:28:22 +0000</pubDate><guid>https://nabobery.github.io/projects/before-you-sign/</guid><description/></item><item><title>Project WAR</title><link>https://nabobery.github.io/projects/project-war/</link><pubDate>Tue, 01 Feb 2022 14:41:46 +0000</pubDate><guid>https://nabobery.github.io/projects/project-war/</guid><description>Project WAR Link to heading WAR stands for Wordle Answer and Resolver
-About Link to heading Wordle is a web-based word game developed by Welsh-born software engineer Josh Wardle, formerly an employee of Reddit. Players attempt to guess a five-letter word in six attempts; feedback, in the form of colored tiles, is given for each guess, informing players which letters are in the correct position and which are in other positions of the answer word.</description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Team on Nabobery</title><link>https://nabobery.github.io/tags/team/</link><description>Recent content in Team on Nabobery</description><generator>Hugo</generator><language>en</language><lastBuildDate>Thu, 02 Nov 2023 14:00:04 +0000</lastBuildDate><atom:link href="https://nabobery.github.io/tags/team/index.xml" rel="self" type="application/rss+xml"/><item><title>exAImination</title><link>https://nabobery.github.io/projects/eduhack/</link><pubDate>Thu, 02 Nov 2023 14:00:04 +0000</pubDate><guid>https://nabobery.github.io/projects/eduhack/</guid><description>&lt;div id="github-readme">&lt;/div>
+&lt;script>
+ (function () {
+ var url = 'https:\/\/raw.githubusercontent.com\/nabobery\/eduhack\/main\/README.md';
+ fetch(url)
+ .then((response) => response.text())
+ .then((text) => {
+ document.getElementById("github-readme").innerHTML = marked.parse(text);
+ const projectUrl = url.replace('raw.githubusercontent.com', 'github.com')
+ .replace('/master/', '/')
+ .replace('/main/', '/')
+ .replace('/README.md', '');
+ const additionalHTML = `&lt;p>Check out the &lt;a href="${projectUrl}" target="_blank">GitHub repository&lt;/a> for more information.&lt;/p>`;
+ document.getElementById("github-readme").innerHTML += additionalHTML;
+ let content = document.getElementById("github-readme").innerText;
+ const words = content.match(/\w+/g).length;
+ const readingTime = Math.ceil(words / 200); 
+ const readingTimeElement = document.getElementsByClassName("reading-time")[0];
+ if (readingTimeElement) {
+ readingTimeElement.textContent = readingTime + "-minute read";
+ }
+ })
+ .catch((error) => {
+ console.error("Error fetching the README:", error);
+ document.getElementById("github-readme").innerHTML =
+ "&lt;p>Error loading README.&lt;/p></description></item><item><title>Before You Sign</title><link>https://nabobery.github.io/projects/before-you-sign/</link><pubDate>Fri, 25 Aug 2023 18:28:22 +0000</pubDate><guid>https://nabobery.github.io/projects/before-you-sign/</guid><description>&lt;div id="github-readme">&lt;/div>
+&lt;script>
+ (function () {
+ var url = 'https:\/\/raw.githubusercontent.com\/nabobery\/before-you-sign\/main\/README.md';
+ fetch(url)
+ .then((response) => response.text())
+ .then((text) => {
+ document.getElementById("github-readme").innerHTML = marked.parse(text);
+ const projectUrl = url.replace('raw.githubusercontent.com', 'github.com')
+ .replace('/master/', '/')
+ .replace('/main/', '/')
+ .replace('/README.md', '');
+ const additionalHTML = `&lt;p>Check out the &lt;a href="${projectUrl}" target="_blank">GitHub repository&lt;/a> for more information.&lt;/p>`;
+ document.getElementById("github-readme").innerHTML += additionalHTML;
+ let content = document.getElementById("github-readme").innerText;
+ const words = content.match(/\w+/g).length;
+ const readingTime = Math.ceil(words / 200); 
+ const readingTimeElement = document.getElementsByClassName("reading-time")[0];
+ if (readingTimeElement) {
+ readingTimeElement.textContent = readingTime + "-minute read";
+ }
+ })
+ .catch((error) => {
+ console.error("Error fetching the README:", error);
+ document.getElementById("github-readme").innerHTML =
+ "&lt;p>Error loading README.&lt;/p></description></item><item><title>Project WAR</title><link>https://nabobery.github.io/projects/project-war/</link><pubDate>Tue, 01 Feb 2022 14:41:46 +0000</pubDate><guid>https://nabobery.github.io/projects/project-war/</guid><description>&lt;h1 id="project-war">
+ Project WAR
+ &lt;a class="heading-link" href="#project-war">
+ &lt;i class="fa-solid fa-link" aria-hidden="true" title="Link to heading">&lt;/i>
+ &lt;span class="sr-only">Link to heading&lt;/span>
+ &lt;/a>
+&lt;/h1>
+&lt;p>&lt;strong>WAR&lt;/strong> stands for &lt;strong>W&lt;/strong>ordle &lt;strong>A&lt;/strong>nswer and &lt;strong>R&lt;/strong>esolver&lt;/p>
+&lt;h2 id="about">
+ About
+ &lt;a class="heading-link" href="#about">
+ &lt;i class="fa-solid fa-link" aria-hidden="true" title="Link to heading">&lt;/i>
+ &lt;span class="sr-only">Link to heading&lt;/span>
+ &lt;/a>
+&lt;/h2>
+&lt;blockquote>
+&lt;p>&lt;a href="https://www.powerlanguage.co.uk/wordle/" class="external-link" target="_blank" rel="noopener">Wordle&lt;/a> is a web-based word game developed by Welsh-born software engineer Josh Wardle, formerly an employee of Reddit. Players attempt to guess a five-letter word in six attempts; feedback, in the form of colored tiles, is given for each guess, informing players which letters are in the correct position and which are in other positions of the answer word. &lt;a href="https://en.wikipedia.org/wiki/Wordle" class="external-link" target="_blank" rel="noopener">(source)&lt;/a>&lt;/p></description></item></channel></rss>

@@ -1,1 +1,26 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Final Year Project on Nabobery</title><link>https://nabobery.github.io/tags/final-year-project/</link><description>Recent content in Final Year Project on Nabobery</description><generator>Hugo</generator><language>en</language><lastBuildDate>Mon, 13 May 2024 18:43:03 +0000</lastBuildDate><atom:link href="https://nabobery.github.io/tags/final-year-project/index.xml" rel="self" type="application/rss+xml"/><item><title>Attribute Based Pedestrian Detection</title><link>https://nabobery.github.io/projects/attribute-based-pedestrian-detection/</link><pubDate>Mon, 13 May 2024 18:43:03 +0000</pubDate><guid>https://nabobery.github.io/projects/attribute-based-pedestrian-detection/</guid><description/></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Final Year Project on Nabobery</title><link>https://nabobery.github.io/tags/final-year-project/</link><description>Recent content in Final Year Project on Nabobery</description><generator>Hugo</generator><language>en</language><lastBuildDate>Mon, 13 May 2024 18:43:03 +0000</lastBuildDate><atom:link href="https://nabobery.github.io/tags/final-year-project/index.xml" rel="self" type="application/rss+xml"/><item><title>Attribute Based Pedestrian Detection</title><link>https://nabobery.github.io/projects/attribute-based-pedestrian-detection/</link><pubDate>Mon, 13 May 2024 18:43:03 +0000</pubDate><guid>https://nabobery.github.io/projects/attribute-based-pedestrian-detection/</guid><description>&lt;div id="github-readme">&lt;/div>
+&lt;script>
+ (function () {
+ var url = 'https:\/\/raw.githubusercontent.com\/nabobery\/Attribute-Based-Pedestrian-Detection\/main\/README.md';
+ fetch(url)
+ .then((response) => response.text())
+ .then((text) => {
+ document.getElementById("github-readme").innerHTML = marked.parse(text);
+ const projectUrl = url.replace('raw.githubusercontent.com', 'github.com')
+ .replace('/master/', '/')
+ .replace('/main/', '/')
+ .replace('/README.md', '');
+ const additionalHTML = `&lt;p>Check out the &lt;a href="${projectUrl}" target="_blank">GitHub repository&lt;/a> for more information.&lt;/p>`;
+ document.getElementById("github-readme").innerHTML += additionalHTML;
+ let content = document.getElementById("github-readme").innerText;
+ const words = content.match(/\w+/g).length;
+ const readingTime = Math.ceil(words / 200); 
+ const readingTimeElement = document.getElementsByClassName("reading-time")[0];
+ if (readingTimeElement) {
+ readingTimeElement.textContent = readingTime + "-minute read";
+ }
+ })
+ .catch((error) => {
+ console.error("Error fetching the README:", error);
+ document.getElementById("github-readme").innerHTML =
+ "&lt;p>Error loading README.&lt;/p></description></item></channel></rss>
