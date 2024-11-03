@@ -98,7 +98,15 @@
  .catch((error) => {
  console.error("Error fetching the README:", error);
  document.getElementById("github-readme").innerHTML =
- "&lt;p>Error loading README.&lt;/p></description></item><item><title>Vivy: Fluorite Eye's Song Review</title><link>https://nabobery.github.io/posts/vivy_fluorite_eyes_song/</link><pubDate>Sun, 23 Apr 2023 17:50:33 +0530</pubDate><guid>https://nabobery.github.io/posts/vivy_fluorite_eyes_song/</guid><description>&lt;h1 id="vivy-fluorite-eyes-song--a-symphony-of-ai-action-and-sci-fi">
+ "&lt;p>Error loading README.&lt;/p></description></item><item><title>Spy x Family Review</title><link>https://nabobery.github.io/posts/spy_x_family/</link><pubDate>Sun, 23 Apr 2023 17:52:09 +0530</pubDate><guid>https://nabobery.github.io/posts/spy_x_family/</guid><description>&lt;h1 id="spy-x-family-the-ultimate-fake-family-adventure">
+ &lt;strong>Spy x Family: The Ultimate Fake Family Adventure&lt;/strong>
+ &lt;a class="heading-link" href="#spy-x-family-the-ultimate-fake-family-adventure">
+ &lt;i class="fa-solid fa-link" aria-hidden="true" title="Link to heading">&lt;/i>
+ &lt;span class="sr-only">Link to heading&lt;/span>
+ &lt;/a>
+&lt;/h1>
+&lt;p>&lt;img alt="Spy x Family Cover" src="https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx140960-vN39AmOWrVB5.jpg">&lt;/p>
+&lt;p>&lt;em>Spy x Family&lt;/em> isn’t just an anime about espionage and danger—it’s about family, with all the humor, warmth, and chaos that comes with it. At its heart, it’s a story of how strangers with hidden identities come together to create an unconventional family. Whether you&amp;rsquo;re a fan of action, comedy, or wholesome moments, this anime has something for everyone!&lt;/p></description></item><item><title>Vivy: Fluorite Eye's Song Review</title><link>https://nabobery.github.io/posts/vivy_fluorite_eyes_song/</link><pubDate>Sun, 23 Apr 2023 17:50:33 +0530</pubDate><guid>https://nabobery.github.io/posts/vivy_fluorite_eyes_song/</guid><description>&lt;h1 id="vivy-fluorite-eyes-song--a-symphony-of-ai-action-and-sci-fi">
  &lt;strong>Vivy: Fluorite Eye&amp;rsquo;s Song — A Symphony of AI, Action, and Sci-Fi!&lt;/strong>
  &lt;a class="heading-link" href="#vivy-fluorite-eyes-song--a-symphony-of-ai-action-and-sci-fi">
  &lt;i class="fa-solid fa-link" aria-hidden="true" title="Link to heading">&lt;/i>
