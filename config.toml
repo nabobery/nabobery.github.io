@@ -16,7 +16,7 @@ description = "Nabobery's personal website"
 author = "Nabobery"
 keywords = ["blog","anime reviews","developer", "personal"]
 info = ["Code and Development Maestro"]
-avatarURL = "images/avatar.png"
+avatarURL = "images/avatar.webp"
 enableTwemoji = true
 dateFormat = "January 2, 2006"
 colorScheme = "auto"
@@ -64,7 +64,7 @@ url = "https://www.linkedin.com/in/avinash-changrani/"
 
 [[params.social]]
 name = "Discord"
-icon = "fa fa-discord fa-2x"
+icon = "fab fa-discord fa-2x"
 weight = 3
 url = "https://discordapp.com/users/406718496609665025/"
 

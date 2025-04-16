@@ -3,9 +3,7 @@ title: "Contact"
 date: 2023-01-22T13:20:09+05:30
 ---
 
-# Contact Me
-
-Thank you for visiting my blog. 
+Thank you for visiting my blog.
 
 If you have any questions or comments about my content, or if you would like to contact me for any other reason, please feel free to reach out to me using the following contact information :
 
