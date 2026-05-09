@@ -1,59 +1,32 @@
-# My Personal Blog
+# nabobery.github.io
 
-This is the repository for my personal blog, built with [Hugo](https://gohugo.io/) and deployed on [GitHub Pages](https://pages.github.com/).
+Personal site and blog for [Nabobery](https://github.com/nabobery/), built with [Astro](https://astro.build/) and deployed to [GitHub Pages](https://pages.github.com/) via [withastro/action](https://github.com/withastro/action).
 
-## About
+- **Blog:** Markdown in `src/content/blog/` (routes under `/posts/`)
+- **Projects:** Metadata in `src/content/projects/`; most pages pull README content from GitHub at build time (`readmeUrl` in frontmatter)
+- **Site config:** `src/site.config.ts` (nav, social links, SEO helpers)
 
-This blog is where I will:
+## Commands
 
-- Share my experiences and challenges in computer science
-- Document the projects I'm working on
-- Discuss technologies I'm learning
-- Provide solutions to problems I've encountered
-- Review and share thoughts on anime series and video games
-- Keep up with the latest news in tech, anime, and gaming 
+| Command          | Action                                                                |
+| ---------------- | --------------------------------------------------------------------- |
+| `pnpm install`   | Install dependencies                                                  |
+| `pnpm dev`       | Dev server (default port 4321)                                        |
+| `pnpm build`     | Output static site to `dist/`                                         |
+| `pnpm preview`   | Preview production build                                              |
+| `pnpm lint`      | [Oxlint](https://oxc.rs/docs/guide/usage/linter.html) (TypeScript/JS) |
+| `pnpm lint:fix`  | Oxlint with safe fixes                                                |
+| `pnpm fmt`       | [Oxfmt](https://oxc.rs/docs/guide/usage/formatter.html) (format)      |
+| `pnpm fmt:check` | Verify formatting (e.g. in CI)                                        |
 
-It's designed to be a platform for me to document my journey, learnings, and projects. It also serves as a way for me to connect with the community and share knowledge.
-
-## Technologies Used
-
-- [Hugo](https://gohugo.io/): A fast and modern static site generator
-- [GitHub Pages](https://pages.github.com/): Hosting platform
-- [Hugo Coder](https://github.com/luizdepra/hugo-coder): The theme used for this blog
-
-## Local Development
-
-To run this blog locally:
-
-1. Install Hugo (see [Hugo installation guide](https://gohugo.io/getting-started/installing/))
-2. Clone this repository:
-    ```bash
-    git clone https://github.com/nabobery/nabobery.github.io.git
-    ```
-3. Navigate to the project directory:
-    ```bash
-    cd nabobery.github.io
-    ```
-4. Start the Hugo server:
-    ```bash
-    hugo server
-    ```
-    - To rebuild the site on file changes, run `hugo server -D`
-    - To disable Fast Render, run `hugo server --disableFastRender`
-    - To run the server on a specific port, run `hugo server --port=1313`
-    - To run the server and open it in the browser, run `hugo server --browser`
-    - To run the server and open it in the browser on a specific port, run `hugo server --port=1313 --browser`
-    - To run the server and open it in the browser on a specific port with Fast Render disabled, run `hugo server --port=1313 --browser --disableFastRender`
-    - To run the server and open it in the browser on a specific port with Fast Render disabled and drafts included, run `hugo server --port=1313 --browser --disableFastRender -D`
-    - To run the server and open it in the browser on a specific port with Fast Render disabled, drafts included, and future content included, run `hugo server --port=1313 --browser --disableFastRender -D --buildFuture`
-    - To run the server and open it in the browser on a specific port with Fast Render disabled, drafts included, future content included, and expired content included, run `hugo server --port=1313 --browser --disableFastRender -D --buildFuture --buildExpired`
-    - To run the server and open it in the browser on a specific port with Fast Render disabled, drafts included, future content included, expired content included, and content not in the default language included, run `hugo server --port=1313 --browser --disableFastRender -D --buildFuture --buildExpired
-5. Open your browser and visit `http://localhost:1313`
+Config: `.oxlintrc.json`, `.oxfmtrc.json`. Oxfmt ignores `dist/`, `node_modules/`, `.astro/`, `.vscode/` (see `.oxfmtrc.json`).
 
 ## Deployment
 
-This blog is automatically deployed to GitHub Pages when changes are pushed to the `main` branch.
+Repository **Settings → Pages**: source **GitHub Actions** (not a legacy `gh-pages` branch). Workflow: `.github/workflows/deploy.yml`.
 
-## Contributing
+Production README fetches require network access during `pnpm build` (for example in CI).
 
-While this is a personal blog, I welcome any suggestions or corrections. Feel free to open an issue or submit a pull request.
+## Credits
+
+Started from the official Astro blog template. Theme styling inherits the minimal “Bear Blog”-inspired starter.

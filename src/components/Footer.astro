@@ -1,0 +1,92 @@
+---
+import { AUTHOR } from '../site.config';
+import SocialIcons from './SocialIcons.astro';
+
+const today = new Date();
+---
+
+<footer>
+	<div class="footer-inner">
+		<SocialIcons variant="footer" />
+		<p class="copyright">&copy; {today.getFullYear()} {AUTHOR}. All rights reserved.</p>
+		<p class="portfolio-note">
+			<a
+				class="portfolio-chip"
+				href="https://avinashchangrani.vercel.app/"
+				rel="noopener noreferrer"
+				target="_blank"
+				aria-label="PORTICO portfolio (opens in a new tab)">
+				<span class="portfolio-chip-main">Portfolio</span>
+				<span class="portfolio-chip-sub" aria-hidden="true">·</span>
+				<span class="portfolio-chip-name">PORTICO</span>
+			</a>
+		</p>
+	</div>
+</footer>
+<style>
+	footer {
+		flex-shrink: 0;
+		padding: 1rem 1rem 1.25rem;
+		border-top: 1px solid var(--border);
+		color: var(--foreground-muted);
+		text-align: center;
+	}
+	.footer-inner {
+		max-width: var(--content-wide);
+		margin: 0 auto;
+	}
+	.copyright {
+		margin: 0.35rem 0 0;
+		font-size: 0.8125rem;
+		line-height: 1.4;
+	}
+	.portfolio-note {
+		margin: 0.35rem 0 0;
+		font-size: 0.8125rem;
+	}
+	.portfolio-chip {
+		display: inline-flex;
+		align-items: center;
+		gap: 0.4rem;
+		padding: 0.28rem 0.75rem;
+		font-size: 0.8125rem;
+		font-weight: 500;
+		color: var(--foreground-muted);
+		background-color: var(--surface-alt);
+		border: 1px solid var(--border);
+		border-radius: var(--radius);
+		text-decoration: none;
+		cursor: pointer;
+		transition:
+			color 0.15s ease,
+			border-color 0.15s ease,
+			background-color 0.15s ease;
+	}
+	.portfolio-chip:hover {
+		color: var(--foreground);
+		border-color: var(--accent);
+		background-color: var(--surface);
+	}
+	.portfolio-chip:focus-visible {
+		outline: 2px solid var(--accent);
+		outline-offset: 2px;
+	}
+	.portfolio-chip-main {
+		font-weight: 600;
+	}
+	.portfolio-chip-sub {
+		opacity: 0.65;
+		font-weight: 400;
+	}
+	.portfolio-chip-name {
+		text-transform: uppercase;
+		font-size: 0.72rem;
+		letter-spacing: 0.12em;
+		font-weight: 600;
+	}
+	@media (prefers-reduced-motion: reduce) {
+		.portfolio-chip {
+			transition: none;
+		}
+	}
+</style>

@@ -1,0 +1,54 @@
+---
+import { SITE_TITLE } from '../consts';
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout
+	title={`About · ${SITE_TITLE}`}
+	description="Welcome to my blog — background, interests, and what you will find here."
+>
+	<div class="about prose">
+		<h1>About</h1>
+
+		<p>
+			My name is <strong>Avinash Changrani</strong>, and I am a computer science student at{' '}
+			<a href="https://iiitdm.ac.in/">IIITDM Kancheepuram</a>. I have always been fascinated by the world of
+			technology and the endless possibilities that it holds. Studying computer science has allowed me to dive
+			deeper into the field, and I have developed a strong passion for problem solving. I believe that
+			understanding and solving problems is the key to creating innovative and impactful solutions.
+		</p>
+
+		<h2 id="journey">Journey in Computer Science</h2>
+
+		<p>
+			This blog is a platform for me to share my journey in computer science and the problems that I have faced
+			along the way. I will post about the projects I am working on, the technologies I am learning, and the
+			solutions I have found to the problems I have encountered.
+		</p>
+
+		<h2 id="interests">Interests</h2>
+
+		<p>
+			I also have a keen interest in anime and gaming; you will find my reviews and thoughts on the latest anime
+			series, games, and related news.
+		</p>
+
+		<h2 id="conclusion">Conclusion</h2>
+
+		<p>
+			This is my blog, one of my most procrastinated projects, but I am glad to have it running. I hope you find my
+			content informative and enjoyable. If you have questions or comments, or you want to connect, please{' '}
+			<a href="/contact/">contact me</a>. Thank you for visiting, and I hope you have a great day!
+		</p>
+	</div>
+</BaseLayout>
+<style>
+	.about {
+		padding-top: 2rem;
+		padding-bottom: 4rem;
+	}
+	.about h1 {
+		text-align: center;
+		margin-bottom: 2rem;
+	}
+</style>
