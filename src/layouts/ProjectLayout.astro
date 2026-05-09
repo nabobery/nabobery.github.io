@@ -19,9 +19,15 @@ const metaDesc = description ?? title;
 				<h1>{title}</h1>
 				{(authors?.length || tags?.length || categories?.length) && (
 					<div class="meta-row">
-						{authors?.length ? <span>{authors.join(', ')}</span> : null}
-						{tags?.length ? <span> · {tags.join(', ')}</span> : null}
-						{categories?.length ? <span> · {categories.join(', ')}</span> : null}
+						{
+							[
+								authors?.length ? authors.join(', ') : undefined,
+								tags?.length ? tags.join(', ') : undefined,
+								categories?.length ? categories.join(', ') : undefined,
+							]
+								.filter(Boolean)
+								.join(' · ')
+						}
 					</div>
 				)}
 				{repoUrl && (
@@ -63,11 +69,11 @@ const metaDesc = description ?? title;
 	.repo-link {
 		margin-top: 0.5rem;
 	}
-	.readme-html :global(img) {
+	:global(.readme-html img) {
 		max-width: 100%;
 		height: auto;
 	}
-	.readme-html :global(pre) {
+	:global(.readme-html pre) {
 		overflow-x: auto;
 	}
 </style>

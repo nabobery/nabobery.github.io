@@ -14,7 +14,7 @@ const blog = defineCollection({
       authors: z.array(z.string()).optional(),
       tags: z.array(z.string()).optional(),
       categories: z.array(z.string()).optional(),
-      externalLink: z.string().url().optional().or(z.literal("")),
+      externalLink: z.url().optional(),
       series: z.array(z.string()).optional(),
     }),
 });
@@ -30,7 +30,7 @@ const projects = defineCollection({
       tags: z.array(z.string()).optional(),
       categories: z.array(z.string()).optional(),
       /** If set, README is fetched at build time from GitHub raw URL. */
-      readmeUrl: z.string().url().optional(),
+      readmeUrl: z.url().optional(),
     }),
 });
 

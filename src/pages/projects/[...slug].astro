@@ -31,21 +31,29 @@ if (entry.data.readmeUrl) {
 const { Content } = await render(entry);
 const rawBody = 'body' in entry && typeof entry.body === 'string' ? entry.body : '';
 const hasLocalMarkdown = rawBody.trim().length > 0;
-const repoUrl = entry.data.readmeUrl
-	? readmeRawToRepoUrl(entry.data.readmeUrl)
-	: undefined;
+let repoUrl: string | undefined;
+if (entry.data.readmeUrl) {
+	try {
+		repoUrl = readmeRawToRepoUrl(entry.data.readmeUrl);
+	} catch {
+		repoUrl = undefined;
+	}
+}
+
+const showReadme = Boolean(entry.data.readmeUrl && readmeHtml);
+const showLocalMarkdown = hasLocalMarkdown && !showReadme;
 ---
 
 <ProjectLayout {...entry.data} repoUrl={repoUrl}>
 	{
-		hasLocalMarkdown && (
+		showLocalMarkdown && (
 			<div class="local-md">
 				<Content />
 			</div>
 		)
 	}
 	{
-		entry.data.readmeUrl && readmeHtml && (
+		showReadme && (
 			<div class="readme-html readme-shell" set:html={readmeHtml} />
 		)
 	}

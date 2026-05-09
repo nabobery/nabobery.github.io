@@ -12,6 +12,9 @@ export const SITE_KEYWORDS = ["blog", "anime reviews", "developer", "personal"] 
 
 export const AUTHOR = "Avinash Changrani";
 
+/** Default locale for `FormattedDate` and similar (BCP 47). */
+export const SITE_LOCALE = "en-US" as const;
+
 export type NavItem = { label: string; href: string };
 
 /** Main nav — order matches legacy Hugo menu. */

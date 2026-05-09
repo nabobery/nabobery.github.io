@@ -48,7 +48,7 @@ My blog building journey has been a rollercoaster of learning and discovery. I h
 
 Meanwhile, I have recently come across an [article](https://blog.openreplay.com/creating-a-markdown-blog-powered-by-next-js-in-under-an-hour) about creating markdown blogs using the Next.js framework. This new prospect has sparked my interest and I am currently exploring it further. I plan to conduct some testing and comparisons between the two methods, and ultimately decide which one is the best fit for my blog.
 
-In the future, I want to update this blog 1-2 times a month and I have some anime reviews lined up which I have written long ago. I will release them soon as soon as I am done applying finishing touches and making it look good in markdown.This journey of building my blog has taught me the importance of constantly seeking new ways to improve and evolve, and I am excited to see what the future holds for my blog.
+In the future, I want to update this blog 1-2 times a month and I have some anime reviews lined up which I have written long ago. I will release them soon as soon as I am done applying finishing touches and making it look good in Markdown. This journey of building my blog has taught me the importance of constantly seeking new ways to improve and evolve, and I am excited to see what the future holds for my blog.
 
 **Update (2026):** This site is now built with [Astro](https://astro.build/) and deployed with GitHub Actions, still on [GitHub Pages](https://pages.github.com/). The goals from this post (simple markdown, fast static HTML) are the same.
 

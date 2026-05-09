@@ -80,7 +80,6 @@ body {
   color: var(--foreground);
   font-size: 1.125rem;
   line-height: 1.7;
-  word-wrap: break-word;
   overflow-wrap: break-word;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -307,7 +306,6 @@ a.cta-link:active {
   height: 1px;
   width: 1px;
   overflow: hidden;
-  clip: rect(1px, 1px, 1px, 1px);
   clip-path: inset(50%);
   white-space: nowrap;
 }
