@@ -1,32 +1,66 @@
 # nabobery.github.io
 
-Personal site and blog for [Nabobery](https://github.com/nabobery/), built with [Astro](https://astro.build/) and deployed to [GitHub Pages](https://pages.github.com/) via [withastro/action](https://github.com/withastro/action).
+Source for [Nabobery](https://github.com/nabobery/)’s public website at [nabobery.github.io](https://nabobery.github.io): a static **blog**, **project portfolio**, and supporting pages (**about**, **contact**). Content is authored in Markdown / MDX; the site ships as plain HTML.
 
-- **Blog:** Markdown in `src/content/blog/` (routes under `/posts/`)
-- **Projects:** Metadata in `src/content/projects/`; most pages pull README content from GitHub at build time (`readmeUrl` in frontmatter)
-- **Site config:** `src/site.config.ts` (nav, social links, SEO helpers)
+## Tech stack
 
-## Commands
+| Layer             | Details                                                                                                                                                                |
+| ----------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Framework**     | [Astro 6](https://astro.build/), static output                                                                                                                         |
+| **Language**      | TypeScript (`pnpm check`)                                                                                                                                              |
+| **Content**       | Astro Content Collections (`src/content.config.ts`, Zod) — [docs](https://docs.astro.build/en/guides/content-collections/)                                             |
+| **Authoring**     | `@astrojs/mdx`                                                                                                                                                         |
+| **Feed & SEO**    | `@astrojs/rss`, `@astrojs/sitemap`                                                                                                                                     |
+| **Lint / format** | [Oxlint](https://oxc.rs/), [Oxfmt](https://oxc.rs/) (see `.oxlintrc.json`, `.oxfmtrc.json`)                                                                            |
+| **Hosting**       | [GitHub Pages](https://pages.github.com/) via [withastro/action](https://github.com/withastro/action) — [`.github/workflows/deploy.yml`](.github/workflows/deploy.yml) |
 
-| Command          | Action                                                                |
-| ---------------- | --------------------------------------------------------------------- |
-| `pnpm install`   | Install dependencies                                                  |
-| `pnpm dev`       | Dev server (default port 4321)                                        |
-| `pnpm build`     | Output static site to `dist/`                                         |
-| `pnpm preview`   | Preview production build                                              |
-| `pnpm lint`      | [Oxlint](https://oxc.rs/docs/guide/usage/linter.html) (TypeScript/JS) |
-| `pnpm lint:fix`  | Oxlint with safe fixes                                                |
-| `pnpm fmt`       | [Oxfmt](https://oxc.rs/docs/guide/usage/formatter.html) (format)      |
-| `pnpm fmt:check` | Verify formatting (e.g. in CI)                                        |
+Runtime dependencies include `marked` and `sanitize-html` for embedding remote GitHub READMEs on project pages at build time.
 
-Config: `.oxlintrc.json`, `.oxfmtrc.json`. Oxfmt ignores `dist/`, `node_modules/`, `.astro/`, `.vscode/` (see `.oxfmtrc.json`).
+## Repository layout
+
+| Concern                              | Path                                        | Public routes                                |
+| ------------------------------------ | ------------------------------------------- | -------------------------------------------- |
+| Blog posts                           | `src/content/blog/`                         | `/posts/`, `/posts/<id>/`                    |
+| Projects                             | `src/content/projects/`                     | `/projects/`, `/projects/<id>/`              |
+| Tag taxonomy (`tags` in frontmatter) | Blog + project content under `src/content/` | `/tags/`, `/tags/<slug>/`                    |
+| Pages & endpoints                    | `src/pages/`                                | e.g. `/`, `/about/`, `/contact/`, `/rss.xml` |
+| Navigation & site copy               | [`src/site.config.ts`](src/site.config.ts)  | —                                            |
+
+Build output directory: **`dist/`**. URLs use trailing slashes (`trailingSlash: 'always'` in `astro.config.mjs`).
+
+## Prerequisites
+
+- **Node.js** ≥ **22.12.0** (`package.json` → `engines`)
+- **pnpm** (lockfile-managed; avoid mixing npm/yarn)
+
+## Getting started
+
+```bash
+pnpm install
+pnpm dev          # http://localhost:4321
+pnpm build        # writes dist/
+pnpm preview      # serve dist/ locally
+```
+
+## Scripts
+
+| Script           | Purpose                  |
+| ---------------- | ------------------------ |
+| `pnpm dev`       | Development server       |
+| `pnpm build`     | Production build         |
+| `pnpm preview`   | Preview `dist/`          |
+| `pnpm check`     | Astro + TypeScript check |
+| `pnpm lint`      | Oxlint                   |
+| `pnpm lint:fix`  | Oxlint with autofix      |
+| `pnpm fmt`       | Format with Oxfmt        |
+| `pnpm fmt:check` | Verify formatting (CI)   |
 
 ## Deployment
 
-Repository **Settings → Pages**: source **GitHub Actions** (not a legacy `gh-pages` branch). Workflow: `.github/workflows/deploy.yml`.
+Configure **GitHub Pages** to publish from **GitHub Actions**. Merges to **`main`** run the deploy workflow linked above.
 
-Production README fetches require network access during `pnpm build` (for example in CI).
+Project entries may set **`readmeUrl`** (raw GitHub markdown). **Build** and **CI** need outbound HTTPS to `raw.githubusercontent.com` where those URLs are used.
 
-## Credits
+## Further documentation
 
-Started from the official Astro blog template. Theme styling inherits the minimal “Bear Blog”-inspired starter.
+For structure, tagging, and operational detail intended for contributors and automation see **[`AGENTS.md`](AGENTS.md)**.

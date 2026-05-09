@@ -231,6 +231,18 @@ input {
   text-decoration: underline;
 }
 
+/* Tag links in post/project headers inherit muted ink; accent on hover matches global anchors */
+.meta-line .tag-link,
+.meta-row .tag-link {
+  color: var(--foreground-muted);
+  text-underline-offset: 0.15em;
+}
+
+.meta-line .tag-link:hover,
+.meta-row .tag-link:hover {
+  color: var(--accent-hover);
+}
+
 .prose img {
   display: block;
   margin: 1.5em auto;

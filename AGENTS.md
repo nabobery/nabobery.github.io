@@ -35,18 +35,26 @@ pnpm build      # outputs to dist/
 ```
 src/
 ├── content/
-│   ├── blog/     # Markdown posts → /posts/
-│   └── projects/ # Project entries → /projects/
-├── pages/        # Astro pages (index, about, contact, etc.)
-├── components/   # Astro components
-├── layouts/      # Page layouts
-└── site.config.ts # Site metadata, nav, social links
+│   ├── blog/        # Markdown/MDX → /posts/, /posts/{id}/
+│   └── projects/    # Markdown/MDX → /projects/, /projects/{id}/
+├── pages/
+│   ├── tags/        # Taxonomy: index + [tag].astro → /tags/, /tags/{slug}/
+│   ├── posts/       # Blog index + entry routes
+│   └── projects/    # Projects index + entry routes
+├── lib/
+│   ├── readme.ts    # README fetch + sanitize at build time
+│   └── tag-utils.ts # Tag slugs + index stats (blog + projects)
+├── components/
+├── layouts/
+├── styles/
+├── content.config.ts # Zod schemas for collections (`tags`, `categories`, etc.)
+└── site.config.ts   # SITE_*, MAIN_NAV (includes Tags → /tags/), SOCIAL_LINKS
 ```
 
 ## Content
 
-- **Blog posts**: Add `.md` files to `src/content/blog/` with frontmatter (`title`, `description`, `pubDate`, `tags`, `categories`)
-- **Projects**: Add `.md` to `src/content/projects/`; most use `readmeUrl` to pull README content from GitHub at build time (requires network access)
+- **Blog posts**: Add `.md` / `.mdx` under `src/content/blog/` with frontmatter (`title`, `description`, `pubDate`, optional `tags`, `categories`, `heroImage`, …). **`tags`** feed `/tags/` and `/tags/{slug}/` (URLs use normalized slugs from labels; simple lowercase tokens like `programming` match legacy Hugo `/tags/programming/`).
+- **Projects**: Add `.md` / `.mdx` under `src/content/projects/`; optional **`tags`** use the same taxonomy as blog posts. Most entries use **`readmeUrl`** for GitHub raw README → rendered HTML at build (requires network in CI/local build).
 
 ## Deployment
 
@@ -59,4 +67,8 @@ src/
 
 - `.oxlintrc.json` — Oxlint rules (TypeScript, unicorn, oxc plugins)
 - `.oxfmtrc.json` — Oxfmt ignores: `dist/`, `node_modules/`, `.astro/`, `.vscode/`
-- `astro.config.mjs` — `trailingSlash: always`, MDX, sitemap integrations
+- `astro.config.mjs` — `site`, `trailingSlash: "always"`, `@astrojs/mdx`, `@astrojs/sitemap`; new static routes under `/tags/` are included in generated sitemaps alongside posts and projects
+
+### Feeds & discovery
+
+- **RSS**: `src/pages/rss.xml.js` → `/rss.xml` (blog collection)
