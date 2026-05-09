@@ -7,7 +7,9 @@ const { href, class: className, ...props } = Astro.props;
 
 function normalizePath(p: string) {
 	const trimmed = p.replace(/\/+/g, '/');
-	if (trimmed === '') return '/';
+	if (trimmed === '' || trimmed === '/') {
+		return '/';
+	}
 	return trimmed.endsWith('/') ? trimmed.slice(0, -1) : trimmed;
 }
 
@@ -18,7 +20,7 @@ function stripBaseUrl(fullPathname: string, baseUrl: string): string {
 		return fullPathname.startsWith('/') ? fullPathname : `/${fullPathname}`;
 	}
 	let rest = fullPathname;
-	if (rest.startsWith(baseTrimmed)) {
+	if (rest === baseTrimmed || rest.startsWith(`${baseTrimmed}/`)) {
 		rest = rest.slice(baseTrimmed.length);
 	}
 	if (!rest.startsWith('/') && rest !== '') {

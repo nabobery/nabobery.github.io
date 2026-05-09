@@ -13,6 +13,7 @@ const { date, locale = SITE_LOCALE } = Astro.props;
 <time datetime={date.toISOString()}>
 	{
 		date.toLocaleDateString(locale, {
+			timeZone: 'UTC',
 			year: 'numeric',
 			month: 'short',
 			day: 'numeric',

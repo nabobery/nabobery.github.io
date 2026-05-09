@@ -18,7 +18,7 @@ const sortedTags = sortTagStats(tagMap.values());
 				<p class="empty">No tags yet. Add <code>tags</code> in post or project frontmatter.</p>
 			) : (
 				<section aria-labelledby="tags-list-heading">
-					<h2 id="tags-list-heading" class="visually-hidden">
+					<h2 id="tags-list-heading" class="sr-only">
 						All tags
 					</h2>
 					<ul class="tag-list">
@@ -40,7 +40,7 @@ const sortedTags = sortTagStats(tagMap.values());
 										<span class="tag-name">{t.displayLabel}</span>
 										<span class="tag-count">
 											{total}
-											<span class="visually-hidden"> ({countLabel})</span>
+											<span class="sr-only"> ({countLabel})</span>
 										</span>
 									</a>
 								</li>
@@ -114,16 +114,5 @@ const sortedTags = sortTagStats(tagMap.values());
 		color: var(--foreground-muted);
 		font-variant-numeric: tabular-nums;
 		flex-shrink: 0;
-	}
-	.visually-hidden {
-		position: absolute;
-		width: 1px;
-		height: 1px;
-		padding: 0;
-		margin: -1px;
-		overflow: hidden;
-		clip: rect(0, 0, 0, 0);
-		white-space: nowrap;
-		border: 0;
 	}
 </style>
