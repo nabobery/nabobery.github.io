@@ -1,0 +1,57 @@
+---
+import type { HTMLAttributes } from 'astro/types';
+
+type Props = HTMLAttributes<'a'>;
+
+const { href, class: className, ...props } = Astro.props;
+
+function normalizePath(p: string) {
+	const trimmed = p.replace(/\/+/g, '/');
+	if (trimmed === '' || trimmed === '/') {
+		return '/';
+	}
+	return trimmed.endsWith('/') ? trimmed.slice(0, -1) : trimmed;
+}
+
+/** Strip vite base without dropping the pathname's leading slash when base is "/" */
+function stripBaseUrl(fullPathname: string, baseUrl: string): string {
+	const baseTrimmed = baseUrl.replace(/\/+$/, '');
+	if (baseTrimmed === '' || baseTrimmed === '/') {
+		return fullPathname.startsWith('/') ? fullPathname : `/${fullPathname}`;
+	}
+	let rest = fullPathname;
+	if (rest === baseTrimmed || rest.startsWith(`${baseTrimmed}/`)) {
+		rest = rest.slice(baseTrimmed.length);
+	}
+	if (!rest.startsWith('/') && rest !== '') {
+		rest = `/${rest}`;
+	}
+	return rest === '' ? '/' : rest;
+}
+
+function isPathBoundaryActive(pathname: string, hrefPath: string): boolean {
+	if (hrefPath === '/') {
+		return pathname === '/' || pathname === '';
+	}
+	const pathSegments = pathname.split('/').filter(Boolean);
+	const hrefSegments = hrefPath.split('/').filter(Boolean);
+	if (hrefSegments.length === 0) {
+		return false;
+	}
+	const prefixMatch =
+		pathSegments.length >= hrefSegments.length &&
+		hrefSegments.every((segment, index) => pathSegments[index] === segment);
+	if (!prefixMatch) {
+		return false;
+	}
+	return pathSegments.length > hrefSegments.length || pathname === hrefPath;
+}
+
+const pathname = normalizePath(stripBaseUrl(Astro.url.pathname, import.meta.env.BASE_URL));
+const hrefPath = normalizePath(String(href));
+const isActive = isPathBoundaryActive(pathname, hrefPath);
+---
+
+<a href={href} class:list={[className, { active: isActive }]} {...props}>
+	<slot />
+</a>

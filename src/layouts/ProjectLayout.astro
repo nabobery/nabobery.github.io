@@ -1,0 +1,95 @@
+---
+import type { CollectionEntry } from 'astro:content';
+import FormattedDate from '../components/FormattedDate.astro';
+import BaseLayout from './BaseLayout.astro';
+import { tagToSlug } from '../lib/tag-utils';
+
+type Props = CollectionEntry<'projects'>['data'] & { repoUrl?: string };
+
+const { title, description, pubDate, tags, categories, authors, repoUrl } = Astro.props;
+const metaDesc = description ?? title;
+---
+
+<BaseLayout title={title} description={metaDesc}>
+	<article class="project-post">
+		<div class="prose">
+			<header class="project-header">
+				<div class="date">
+					<FormattedDate date={pubDate} />
+				</div>
+				<h1>{title}</h1>
+				{(authors?.length || tags?.length || categories?.length) && (
+					<div class="meta-row">
+						{authors?.length ? <span>{authors.join(', ')}</span> : null}
+						{tags?.length ? (
+							<>
+								{authors?.length ? <span aria-hidden="true"> · </span> : null}
+								<span>
+									{tags.map((tagLabel, index) => (
+										<>
+											{index > 0 ? ', ' : ''}
+											<a class="tag-link" href={`/tags/${tagToSlug(tagLabel)}/`}>
+												{tagLabel}
+											</a>
+										</>
+									))}
+								</span>
+							</>
+						) : null}
+						{categories?.length ? (
+							<>
+								{(authors?.length || tags?.length) ? (
+									<span aria-hidden="true"> · </span>
+								) : null}
+								<span>{categories.join(', ')}</span>
+							</>
+						) : null}
+					</div>
+				)}
+				{repoUrl && (
+					<p class="repo-link">
+						<a href={repoUrl} target="_blank" rel="noopener noreferrer">
+							View on GitHub &rarr;
+						</a>
+					</p>
+				)}
+				<hr />
+			</header>
+			<slot />
+		</div>
+	</article>
+</BaseLayout>
+
+<style>
+	.project-post {
+		width: 100%;
+	}
+	.project-header {
+		margin-bottom: 1.5rem;
+		text-align: center;
+		line-height: 1.2;
+	}
+	.project-header h1 {
+		margin: 0 0 0.5em;
+	}
+	.date {
+		margin-bottom: 0.5em;
+		color: var(--foreground-muted);
+		font-size: 0.9rem;
+	}
+	.meta-row {
+		font-size: 0.875rem;
+		color: var(--foreground-muted);
+		margin-bottom: 0.75rem;
+	}
+	.repo-link {
+		margin-top: 0.5rem;
+	}
+	:global(.readme-html img) {
+		max-width: 100%;
+		height: auto;
+	}
+	:global(.readme-html pre) {
+		overflow-x: auto;
+	}
+</style>

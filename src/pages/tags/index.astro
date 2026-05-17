@@ -1,0 +1,118 @@
+---
+import { getCollection } from 'astro:content';
+import { SITE_DESCRIPTION, SITE_TITLE } from '../../consts';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { buildTagIndexFromCollections, sortTagStats } from '../../lib/tag-utils';
+
+const blogPosts = await getCollection('blog');
+const projects = await getCollection('projects');
+const tagMap = buildTagIndexFromCollections(blogPosts, projects);
+const sortedTags = sortTagStats(tagMap.values());
+---
+
+<BaseLayout title={`Tags · ${SITE_TITLE}`} description={SITE_DESCRIPTION}>
+	<div class="tags-page">
+		<h1 class="page-title">Tags</h1>
+		{
+			sortedTags.length === 0 ? (
+				<p class="empty">No tags yet. Add <code>tags</code> in post or project frontmatter.</p>
+			) : (
+				<section aria-labelledby="tags-list-heading">
+					<h2 id="tags-list-heading" class="sr-only">
+						All tags
+					</h2>
+					<ul class="tag-list">
+						{sortedTags.map((t) => {
+							const total = t.blogCount + t.projectCount;
+							const parts: string[] = [];
+							if (t.blogCount) {
+								parts.push(`${t.blogCount} ${t.blogCount === 1 ? 'post' : 'posts'}`);
+							}
+							if (t.projectCount) {
+								parts.push(
+									`${t.projectCount} ${t.projectCount === 1 ? 'project' : 'projects'}`,
+								);
+							}
+							const countLabel = parts.join(', ');
+							return (
+								<li>
+									<a href={`/tags/${t.slug}/`} class="tag-entry">
+										<span class="tag-name">{t.displayLabel}</span>
+										<span class="tag-count">
+											{total}
+											<span class="sr-only"> ({countLabel})</span>
+										</span>
+									</a>
+								</li>
+							);
+						})}
+					</ul>
+				</section>
+			)
+		}
+	</div>
+</BaseLayout>
+
+<style>
+	.tags-page {
+		max-width: var(--content-wide);
+		margin: 0 auto;
+		padding: 1.5rem 1rem 3rem;
+	}
+	.page-title {
+		text-align: center;
+		margin-bottom: 2rem;
+	}
+	.empty {
+		text-align: center;
+		color: var(--foreground-muted);
+		max-width: 36rem;
+		margin: 2rem auto 0;
+	}
+	.tag-list {
+		list-style: none;
+		margin: 0;
+		padding: 0;
+		display: flex;
+		flex-direction: column;
+		gap: 0;
+		border: 1px solid var(--border);
+		border-radius: var(--radius);
+		overflow: hidden;
+	}
+	.tag-list li {
+		border-bottom: 1px solid var(--border);
+	}
+	.tag-list li:last-child {
+		border-bottom: none;
+	}
+	.tag-entry {
+		display: flex;
+		justify-content: space-between;
+		align-items: baseline;
+		gap: 1rem;
+		padding: 0.875rem 1rem;
+		text-decoration: none;
+		color: var(--foreground);
+		transition:
+			background-color 0.15s ease,
+			border-color 0.15s ease;
+	}
+	.tag-entry:hover {
+		background-color: var(--surface-alt);
+		border-color: var(--accent);
+	}
+	.tag-entry:hover .tag-name {
+		color: var(--accent);
+	}
+	.tag-name {
+		font-weight: 600;
+		font-size: 1rem;
+	}
+	.tag-count {
+		font-size: 0.875rem;
+		color: var(--foreground-muted);
+		font-variant-numeric: tabular-nums;
+		flex-shrink: 0;
+	}
+</style>

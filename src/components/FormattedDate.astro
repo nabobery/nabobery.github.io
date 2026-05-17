@@ -1,0 +1,22 @@
+---
+import { SITE_LOCALE } from '../consts';
+
+interface Props {
+	date: Date;
+	/** BCP 47 locale; defaults to `SITE_LOCALE` from site config. */
+	locale?: string;
+}
+
+const { date, locale = SITE_LOCALE } = Astro.props;
+---
+
+<time datetime={date.toISOString()}>
+	{
+		date.toLocaleDateString(locale, {
+			timeZone: 'UTC',
+			year: 'numeric',
+			month: 'short',
+			day: 'numeric',
+		})
+	}
+</time>

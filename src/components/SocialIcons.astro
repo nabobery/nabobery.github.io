@@ -1,0 +1,89 @@
+---
+import devdottoSvgRaw from "../icons/social/devdotto.svg?raw";
+import discordSvgRaw from "../icons/social/discord.svg?raw";
+import githubSvgRaw from "../icons/social/github.svg?raw";
+import gmailSvgRaw from "../icons/social/gmail.svg?raw";
+import linkedinSvgRaw from "../icons/social/linkedin.svg?raw";
+import { SOCIAL_LINKS, type SocialLink } from "../site.config";
+
+const ICON_SVG: Record<SocialLink["icon"], string> = {
+	devdotto: devdottoSvgRaw,
+	discord: discordSvgRaw,
+	github: githubSvgRaw,
+	email: gmailSvgRaw,
+	linkedin: linkedinSvgRaw,
+};
+
+type Variant = "header" | "footer";
+
+interface Props {
+	variant?: Variant;
+}
+
+const { variant = "footer" } = Astro.props;
+	const size = variant === "header" ? 20 : 22;
+---
+
+<ul class:list={["social-icons", variant]}>
+	{
+		SOCIAL_LINKS.map(({ name, href, icon }) => {
+			const external = href.startsWith("http");
+			return (
+				<li>
+					<a
+						href={href}
+						target={external ? "_blank" : undefined}
+						rel={external ? "noopener noreferrer" : undefined}
+						aria-label={name}
+					>
+						<span
+							class="social-icon-slot"
+							style={`width:${size}px;height:${size}px`}
+							set:html={ICON_SVG[icon]}
+							aria-hidden="true"
+						/>
+					</a>
+				</li>
+			);
+		})
+	}
+</ul>
+<style>
+	.social-icons {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 0.75rem;
+		list-style: none;
+		margin: 0;
+		padding: 0;
+		align-items: center;
+		justify-content: center;
+	}
+	.social-icons.footer {
+		gap: 0.5rem;
+	}
+	.social-icons.header {
+		justify-content: flex-end;
+		gap: 0.5rem;
+	}
+	.social-icons a {
+		color: var(--foreground-muted);
+		display: flex;
+		align-items: center;
+		transition: color 0.15s ease;
+	}
+	.social-icons a:hover {
+		color: var(--accent);
+	}
+	.social-icon-slot {
+		flex-shrink: 0;
+		display: block;
+		line-height: 0;
+	}
+	.social-icon-slot :global(svg) {
+		width: 100%;
+		height: 100%;
+		display: block;
+		fill: currentColor;
+	}
+</style>

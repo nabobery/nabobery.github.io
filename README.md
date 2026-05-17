@@ -1,59 +1,66 @@
-# My Personal Blog
+# nabobery.github.io
 
-This is the repository for my personal blog, built with [Hugo](https://gohugo.io/) and deployed on [GitHub Pages](https://pages.github.com/).
+Source for [Nabobery](https://github.com/nabobery/)’s public website at [nabobery.github.io](https://nabobery.github.io): a static **blog**, **project portfolio**, and supporting pages (**about**, **contact**). Content is authored in Markdown / MDX; the site ships as plain HTML.
 
-## About
+## Tech stack
 
-This blog is where I will:
+| Layer             | Details                                                                                                                                                                |
+| ----------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Framework**     | [Astro 6](https://astro.build/), static output                                                                                                                         |
+| **Language**      | TypeScript (`pnpm check`)                                                                                                                                              |
+| **Content**       | Astro Content Collections (`src/content.config.ts`, Zod) — [docs](https://docs.astro.build/en/guides/content-collections/)                                             |
+| **Authoring**     | `@astrojs/mdx`                                                                                                                                                         |
+| **Feed & SEO**    | `@astrojs/rss`, `@astrojs/sitemap`                                                                                                                                     |
+| **Lint / format** | [Oxlint](https://oxc.rs/), [Oxfmt](https://oxc.rs/) (see `.oxlintrc.json`, `.oxfmtrc.json`)                                                                            |
+| **Hosting**       | [GitHub Pages](https://pages.github.com/) via [withastro/action](https://github.com/withastro/action) — [`.github/workflows/deploy.yml`](.github/workflows/deploy.yml) |
 
-- Share my experiences and challenges in computer science
-- Document the projects I'm working on
-- Discuss technologies I'm learning
-- Provide solutions to problems I've encountered
-- Review and share thoughts on anime series and video games
-- Keep up with the latest news in tech, anime, and gaming 
+Runtime dependencies include `marked` and `sanitize-html` for embedding remote GitHub READMEs on project pages at build time.
 
-It's designed to be a platform for me to document my journey, learnings, and projects. It also serves as a way for me to connect with the community and share knowledge.
+## Repository layout
 
-## Technologies Used
+| Concern                              | Path                                        | Public routes                                |
+| ------------------------------------ | ------------------------------------------- | -------------------------------------------- |
+| Blog posts                           | `src/content/blog/`                         | `/posts/`, `/posts/<id>/`                    |
+| Projects                             | `src/content/projects/`                     | `/projects/`, `/projects/<id>/`              |
+| Tag taxonomy (`tags` in frontmatter) | Blog + project content under `src/content/` | `/tags/`, `/tags/<slug>/`                    |
+| Pages & endpoints                    | `src/pages/`                                | e.g. `/`, `/about/`, `/contact/`, `/rss.xml` |
+| Navigation & site copy               | [`src/site.config.ts`](src/site.config.ts)  | —                                            |
 
-- [Hugo](https://gohugo.io/): A fast and modern static site generator
-- [GitHub Pages](https://pages.github.com/): Hosting platform
-- [Hugo Coder](https://github.com/luizdepra/hugo-coder): The theme used for this blog
+Build output directory: **`dist/`**. URLs use trailing slashes (`trailingSlash: 'always'` in `astro.config.mjs`).
 
-## Local Development
+## Prerequisites
 
-To run this blog locally:
+- **Node.js** ≥ **22.12.0** (`package.json` → `engines`)
+- **pnpm** (lockfile-managed; avoid mixing npm/yarn)
 
-1. Install Hugo (see [Hugo installation guide](https://gohugo.io/getting-started/installing/))
-2. Clone this repository:
-    ```bash
-    git clone https://github.com/nabobery/nabobery.github.io.git
-    ```
-3. Navigate to the project directory:
-    ```bash
-    cd nabobery.github.io
-    ```
-4. Start the Hugo server:
-    ```bash
-    hugo server
-    ```
-    - To rebuild the site on file changes, run `hugo server -D`
-    - To disable Fast Render, run `hugo server --disableFastRender`
-    - To run the server on a specific port, run `hugo server --port=1313`
-    - To run the server and open it in the browser, run `hugo server --browser`
-    - To run the server and open it in the browser on a specific port, run `hugo server --port=1313 --browser`
-    - To run the server and open it in the browser on a specific port with Fast Render disabled, run `hugo server --port=1313 --browser --disableFastRender`
-    - To run the server and open it in the browser on a specific port with Fast Render disabled and drafts included, run `hugo server --port=1313 --browser --disableFastRender -D`
-    - To run the server and open it in the browser on a specific port with Fast Render disabled, drafts included, and future content included, run `hugo server --port=1313 --browser --disableFastRender -D --buildFuture`
-    - To run the server and open it in the browser on a specific port with Fast Render disabled, drafts included, future content included, and expired content included, run `hugo server --port=1313 --browser --disableFastRender -D --buildFuture --buildExpired`
-    - To run the server and open it in the browser on a specific port with Fast Render disabled, drafts included, future content included, expired content included, and content not in the default language included, run `hugo server --port=1313 --browser --disableFastRender -D --buildFuture --buildExpired
-5. Open your browser and visit `http://localhost:1313`
+## Getting started
+
+```bash
+pnpm install
+pnpm dev          # http://localhost:4321
+pnpm build        # writes dist/
+pnpm preview      # serve dist/ locally
+```
+
+## Scripts
+
+| Script           | Purpose                  |
+| ---------------- | ------------------------ |
+| `pnpm dev`       | Development server       |
+| `pnpm build`     | Production build         |
+| `pnpm preview`   | Preview `dist/`          |
+| `pnpm check`     | Astro + TypeScript check |
+| `pnpm lint`      | Oxlint                   |
+| `pnpm lint:fix`  | Oxlint with autofix      |
+| `pnpm fmt`       | Format with Oxfmt        |
+| `pnpm fmt:check` | Verify formatting (CI)   |
 
 ## Deployment
 
-This blog is automatically deployed to GitHub Pages when changes are pushed to the `main` branch.
+Configure **GitHub Pages** to publish from **GitHub Actions**. Merges to **`main`** run the deploy workflow linked above.
 
-## Contributing
+Project entries may set **`readmeUrl`** (raw GitHub markdown). **Build** and **CI** need outbound HTTPS to `raw.githubusercontent.com` where those URLs are used.
 
-While this is a personal blog, I welcome any suggestions or corrections. Feel free to open an issue or submit a pull request.
+## Further documentation
+
+For structure, tagging, and operational detail intended for contributors and automation see **[`AGENTS.md`](AGENTS.md)**.

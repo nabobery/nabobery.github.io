@@ -1,0 +1,83 @@
+---
+import { type CollectionEntry, getCollection, render } from 'astro:content';
+import ProjectLayout from '../../layouts/ProjectLayout.astro';
+import { fetchReadmeHtml, readmeRawToRepoUrl } from '../../lib/readme';
+
+export async function getStaticPaths() {
+	const projects = await getCollection('projects');
+	return projects.map((entry) => ({
+		params: { slug: entry.id },
+		props: { entry },
+	}));
+}
+
+interface Props {
+	entry: CollectionEntry<'projects'>;
+}
+
+const { entry } = Astro.props;
+
+let readmeHtml: string | undefined;
+let readmeError: string | undefined;
+if (entry.data.readmeUrl) {
+	try {
+		readmeHtml = await fetchReadmeHtml(entry.data.readmeUrl);
+	} catch (e) {
+		readmeError =
+			e instanceof Error ? e.message : 'Could not load README from GitHub.';
+	}
+}
+
+const { Content } = await render(entry);
+const rawBody = 'body' in entry && typeof entry.body === 'string' ? entry.body : '';
+const hasLocalMarkdown = rawBody.trim().length > 0;
+let repoUrl: string | undefined;
+if (entry.data.readmeUrl) {
+	try {
+		repoUrl = readmeRawToRepoUrl(entry.data.readmeUrl);
+	} catch {
+		repoUrl = undefined;
+	}
+}
+
+const showReadme = Boolean(entry.data.readmeUrl && readmeHtml);
+const showLocalMarkdown = hasLocalMarkdown && !showReadme;
+---
+
+<ProjectLayout {...entry.data} repoUrl={repoUrl}>
+	{
+		showLocalMarkdown && (
+			<div class="local-md">
+				<Content />
+			</div>
+		)
+	}
+	{
+		showReadme && (
+			<div class="readme-html readme-shell" set:html={readmeHtml} />
+		)
+	}
+	{
+		entry.data.readmeUrl && readmeError && (
+			<p class="readme-fallback">
+				{readmeError} You can still open the{' '}
+				{repoUrl && (
+					<a href={repoUrl} target="_blank" rel="noopener noreferrer">
+						repository on GitHub
+					</a>
+				)}
+				{!repoUrl && <>repository on GitHub</>}.
+			</p>
+		)
+	}
+</ProjectLayout>
+<style>
+	.local-md + .readme-shell {
+		margin-top: 2rem;
+		padding-top: 2rem;
+		border-top: 1px solid rgb(var(--gray-light));
+	}
+	.readme-fallback {
+		color: rgb(var(--gray));
+	}
+</style>

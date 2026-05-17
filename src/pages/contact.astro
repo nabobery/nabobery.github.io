@@ -1,0 +1,49 @@
+---
+import SocialIcons from '../components/SocialIcons.astro';
+import { SITE_DESCRIPTION, SITE_TITLE } from '../consts';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { ANIME_LINKS } from '../site.config';
+---
+
+<BaseLayout title={`Contact · ${SITE_TITLE}`} description={SITE_DESCRIPTION}>
+	<div class="contact">
+		<h1>Contact</h1>
+		<p>
+			Thank you for visiting my blog. If you have any questions or comments about my content, or you would
+			like to contact me for any other reason, you can use the links below.
+		</p>
+		<section class="social-block" aria-labelledby="social-heading">
+			<h2 id="social-heading">Social and email</h2>
+			<SocialIcons variant="footer" />
+		</section>
+		<p>
+			You can also find my anime watchlist and ratings on{' '}
+			<a href={ANIME_LINKS[0].href}>{ANIME_LINKS[0].label}</a>
+			{' and '}
+			<a href={ANIME_LINKS[1].href}>{ANIME_LINKS[1].label}</a>. I would be happy to connect and discuss ideas.
+		</p>
+	</div>
+</BaseLayout>
+<style>
+	.contact {
+		max-width: var(--content-width);
+		margin: 0 auto;
+		padding: 2rem 1rem 4rem;
+		line-height: 1.65;
+	}
+	h1 {
+		text-align: center;
+	}
+	.social-block {
+		margin: 2rem 0;
+		padding: 1.5rem 0;
+		border-top: 1px solid var(--border);
+		border-bottom: 1px solid var(--border);
+	}
+	.social-block h2 {
+		font-size: 1rem;
+		margin: 0 0 1rem;
+		text-align: center;
+		color: var(--foreground-muted);
+	}
+</style>
