@@ -3,7 +3,7 @@
 ## Quick Start
 
 ```bash
-pnpm install    # Node >=22.12.0 required
+pnpm install    # Node >=22.12.0; CI/runtime pinned in package.json
 pnpm dev        # localhost:4321
 pnpm build      # outputs to dist/
 ```
@@ -12,7 +12,7 @@ pnpm build      # outputs to dist/
 
 - **Astro 6.x** (static site generator)
 - **TypeScript** — type-check with `pnpm check`
-- **pnpm** — package manager (NOT npm/yarn)
+- **pnpm 11.x** — package manager (NOT npm/yarn); pinned in `package.json`
 - **Oxlint + Oxfmt** — NOT ESLint/Prettier. Run `pnpm lint` and `pnpm fmt`
 - **MDX** — supported for blog content
 - **Fonts** — system UI stack (Hugo Coder–style); legacy Atkinson `.woff` files remain in `src/fonts/` unused
@@ -58,9 +58,11 @@ src/
 
 ## Deployment
 
-- **Target**: GitHub Pages via `withastro/action`
+- **Target**: GitHub Pages via a custom GitHub Actions workflow
 - **Trigger**: Push to `main` branch runs `.github/workflows/deploy.yml`
 - **Manual**: Use `workflow_dispatch` in GitHub Actions
+- **Build**: Uses `actions/setup-node` plus `pnpm/action-setup`; `package.json` controls the Node and pnpm versions
+- **Policy**: `pnpm-workspace.yaml` enforces `minimumReleaseAge: 1440` and approved build scripts for `esbuild` and `sharp`
 - **Note**: Build fetches remote READMEs — requires network in CI
 
 ## Style Config

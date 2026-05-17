@@ -4,15 +4,15 @@ Source for [Nabobery](https://github.com/nabobery/)’s public website at [nabob
 
 ## Tech stack
 
-| Layer             | Details                                                                                                                                                                |
-| ----------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **Framework**     | [Astro 6](https://astro.build/), static output                                                                                                                         |
-| **Language**      | TypeScript (`pnpm check`)                                                                                                                                              |
-| **Content**       | Astro Content Collections (`src/content.config.ts`, Zod) — [docs](https://docs.astro.build/en/guides/content-collections/)                                             |
-| **Authoring**     | `@astrojs/mdx`                                                                                                                                                         |
-| **Feed & SEO**    | `@astrojs/rss`, `@astrojs/sitemap`                                                                                                                                     |
-| **Lint / format** | [Oxlint](https://oxc.rs/), [Oxfmt](https://oxc.rs/) (see `.oxlintrc.json`, `.oxfmtrc.json`)                                                                            |
-| **Hosting**       | [GitHub Pages](https://pages.github.com/) via [withastro/action](https://github.com/withastro/action) — [`.github/workflows/deploy.yml`](.github/workflows/deploy.yml) |
+| Layer             | Details                                                                                                                                         |
+| ----------------- | ----------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Framework**     | [Astro 6](https://astro.build/), static output                                                                                                  |
+| **Language**      | TypeScript (`pnpm check`)                                                                                                                       |
+| **Content**       | Astro Content Collections (`src/content.config.ts`, Zod) — [docs](https://docs.astro.build/en/guides/content-collections/)                      |
+| **Authoring**     | `@astrojs/mdx`                                                                                                                                  |
+| **Feed & SEO**    | `@astrojs/rss`, `@astrojs/sitemap`                                                                                                              |
+| **Lint / format** | [Oxlint](https://oxc.rs/), [Oxfmt](https://oxc.rs/) (see `.oxlintrc.json`, `.oxfmtrc.json`)                                                     |
+| **Hosting**       | [GitHub Pages](https://pages.github.com/) via a custom GitHub Actions workflow — [`.github/workflows/deploy.yml`](.github/workflows/deploy.yml) |
 
 Runtime dependencies include `marked` and `sanitize-html` for embedding remote GitHub READMEs on project pages at build time.
 
@@ -31,7 +31,8 @@ Build output directory: **`dist/`**. URLs use trailing slashes (`trailingSlash: 
 ## Prerequisites
 
 - **Node.js** ≥ **22.12.0** (`package.json` → `engines`)
-- **pnpm** (lockfile-managed; avoid mixing npm/yarn)
+- **Node.js / pnpm tooling** pinned in `package.json` (`devEngines.runtime` and `packageManager`)
+- **pnpm 11.x** (lockfile-managed; avoid mixing npm/yarn)
 
 ## Getting started
 
@@ -58,6 +59,8 @@ pnpm preview      # serve dist/ locally
 ## Deployment
 
 Configure **GitHub Pages** to publish from **GitHub Actions**. Merges to **`main`** run the deploy workflow linked above.
+
+The workflow now uses the standard Pages artifact flow instead of `withastro/action`. `package.json` is the source of truth for the Node and pnpm versions used in CI, and `pnpm-workspace.yaml` enables pnpm 11 build-script approval with a 24-hour release delay.
 
 Project entries may set **`readmeUrl`** (raw GitHub markdown). **Build** and **CI** need outbound HTTPS to `raw.githubusercontent.com` where those URLs are used.
 

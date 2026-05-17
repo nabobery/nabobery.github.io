@@ -29,7 +29,15 @@
     "oxlint": "^1.63.0",
     "typescript": "^6.0.3"
   },
+  "devEngines": {
+    "runtime": {
+      "name": "node",
+      "version": "24.15.0",
+      "onFail": "error"
+    }
+  },
   "engines": {
     "node": ">=22.12.0"
-  }
+  },
+  "packageManager": "pnpm@11.1.2"
 }
