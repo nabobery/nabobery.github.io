@@ -45,7 +45,7 @@ export const SOCIAL_LINKS: SocialLink[] = [
     href: "https://discordapp.com/users/406718496609665025/",
     icon: "discord",
   },
-  { name: "Email", href: "mailto:avinashchangranii99@gmail.com", icon: "email" },
+  { name: "Email", href: "mailto:avinashchangrani99@gmail.com", icon: "email" },
   { name: "dev.to", href: "https://dev.to/nabobery", icon: "devdotto" },
 ];
 
